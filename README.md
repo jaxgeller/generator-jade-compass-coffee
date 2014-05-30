@@ -1,4 +1,5 @@
 ### Install
+---
 `npm install generator-jade-compass-coffee -g`
 ---
 

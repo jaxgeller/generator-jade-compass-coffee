@@ -4,7 +4,7 @@
   "description": "Yo generator made with jade, sass, gulp, susy, breakpoint, modular-scale, coffeescript and livereload.",
   "license": "MIT",
   "main": "app/index.js",
-  "repository": "https://github.com/jacksongeller/Jade-Compass",
+  "repository": "https://github.com/jacksongeller/Jade-Compass-Coffee",
   "author": {
     "name": "@JaxGeller",
     "url": "https://github.com/jacksongeller"
