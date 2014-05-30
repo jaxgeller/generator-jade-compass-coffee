@@ -3,6 +3,8 @@ var gulp =require('gulp');
 var plumber = require('gulp-plumber');
 var rename = require('gulp-rename');
 var connect = require('gulp-connect');
+var minifyCss = require('gulp-minify-css');
+var uglify = require('gulp-uglify');
 
 // Plugins
 var compass = require('gulp-compass');
@@ -34,7 +36,7 @@ gulp.task('connect', function() {
   })
 })
 
-//Compass
+// Compass
 gulp.task('compass', function() {
   gulp.src(p.sass.src)
     .pipe(compass({
@@ -43,8 +45,9 @@ gulp.task('compass', function() {
       require: ['susy', 'breakpoint', 'modular-scale']
     }))
     .on('error', function(err) {
-      console.log(err)
+      console.log(err) // plumber was not very good with compass
     })
+    .pipe(minifyCss())
     .pipe(gulp.dest(p.sass.dest))
     .pipe(connect.reload())
 }) 
@@ -58,11 +61,12 @@ gulp.task('browserify', function() {
       extensions: ['.coffee']
     }))
     .pipe(rename('main.js'))
+    .pipe(uglify())
     .pipe(gulp.dest(p.scripts.dest))
     .pipe(connect.reload())
 })
 
-// jade
+// Jade
 gulp.task('jade', function() {
   gulp.src(p.jade.src)
     .pipe(plumber())
@@ -88,7 +92,7 @@ gulp.task('watch', function() {
   gulp.watch('public/images/**',['images']);
 })
 
-
+// Go
 gulp.task('default', ['compass', 'browserify', 'jade', 'images', 'connect', 'watch'], function() {
-  console.log('Starting up gulp !')
+  console.log('Starting up gulp!')
 })
