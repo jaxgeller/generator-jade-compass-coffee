@@ -1,0 +1,20 @@
+{
+  "name": "package",
+  "version": "0.0.0",
+  "dependencies": {
+    "jquery":"*",
+    "lodash":"*"
+  },
+  "devDependencies": {
+    "gulp":"*",
+    "gulp-plumber":"*",
+    "gulp-rename":"*",
+    "gulp-compass":"*",
+    "gulp-browserify":"*",
+    "gulp-jade":"*",
+    "gulp-imagemin":"*",
+    "gulp-connect":"*",
+    "browserify":"*",
+    "coffeeify":"*"
+  }
+}

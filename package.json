@@ -1,0 +1,32 @@
+{
+  "name": "generator-jade-sass",
+  "version": "0.0.0",
+  "description": "Yo generator made with jade, sass, gulp, susy, breakpoint, modular-scale, and livereload.",
+  "license": "MIT",
+  "main": "app/index.js",
+  "repository": "",
+  "author": {
+    "name": "Jackson Geller",
+    "url": "https://github.com/jacksongeller"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+ "files": [
+    "app"
+  ],
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "dependencies": {
+    "yeoman-generator": "~0.16.0",
+    "chalk": "~0.4.0",
+    "yosay": "^0.1.0"
+  },
+  "devDependencies": {
+    "mocha": "*"
+  },
+  "peerDependencies": {
+    "yo": ">=1.0.0"
+  }
+}
