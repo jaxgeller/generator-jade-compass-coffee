@@ -26,9 +26,10 @@ var WebappGenerator = yeoman.generators.Base.extend({
         name: 'typeOfPrj',
         message: 'What kind of project would you like?',
         choices: [
-          'Static app (no server)',
-          'Dynamic (adds express)'
-        ]
+          'static app (no server)',
+          'dynamic (adds express)'
+        ],
+        filter: function (val) { val = val.split(""); return val[0] }
       },
 
       {
@@ -48,11 +49,16 @@ var WebappGenerator = yeoman.generators.Base.extend({
 
     this.prompt(prompts, function (props) {
       console.log(props);
+      this.prjType = props.typeOfPrj;
+      this.angular = props.includeAngular;
       done();
     }.bind(this));
   },
 
   app: function () {
+    if (this.angular) {
+      this.copy('_bower.json', 'bower.json');
+    } 
     this.copy('_package.json', 'package.json');
     this.copy('_Gulpfile.js', "Gulpfile.js");
     this.directory('_public', 'public');

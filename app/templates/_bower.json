@@ -1,0 +1,10 @@
+{
+  "name": "app",
+  "version": "0.0.0",
+  "description": "webapp",
+  "license": "MIT",
+  "dependencies": {
+    "angular":"*",
+    "angular-ui-router":"*"
+  }
+}

@@ -6,6 +6,7 @@
     "lodash":"*"
   },
   "devDependencies": {
+    "napa":"*",
     "gulp":"*",
     "gulp-plumber":"*",
     "gulp-rename":"*",
@@ -16,5 +17,14 @@
     "gulp-connect":"*",
     "browserify":"*",
     "coffeeify":"*"
+  },
+  <% if (angular) { %>
+  "scripts":{
+    "install":"napa"
+  },
+  "napa": {
+    "angular":"angular/bower-angular",
+    "angular-ui-router":"bower-angular-ui-router"
   }
+  <% } %> 
 }

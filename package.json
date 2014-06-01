@@ -1,6 +1,6 @@
 {
   "name": "generator-jade-compass-coffee",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Yo generator made with jade, sass, gulp, susy, breakpoint, modular-scale, coffeescript and livereload.",
   "license": "MIT",
   "main": "app/index.js",
@@ -19,7 +19,8 @@
     "susy",
     "breakpoint",
     "browserify",
-    "coffeescript"
+    "coffeescript",
+    "angular"
   ],
   "dependencies": {
     "yeoman-generator": "~0.16.0",
