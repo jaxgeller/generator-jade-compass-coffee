@@ -23,7 +23,12 @@ var p = {
   },
   jade: {
     src: 'jade/*.jade',
-    dest: 'build/views/'
+    dest: 'build/views/' <% if (angular) { , %>
+    index: {
+      src: 'jade/index.jade',
+      dest: 'build/'
+    }
+    <% } %> 
   }
 }
 
@@ -74,6 +79,15 @@ gulp.task('jade', function() {
     .pipe(gulp.dest(p.jade.dest))
     .pipe(connect.reload())
 })
+<% if (angular) { %>
+gulp.task('jadeIndex', function() {
+  gulp.src(p.jade.index.src)
+    .pipe(plumber())
+    .pipe(jade())
+    .pipe(gulp.dest(p.jade.index.dest))
+    .pipe(connect.reload())
+})
+<% } %>
 
 // Images
 gulp.task('images', function() {
@@ -93,6 +107,6 @@ gulp.task('watch', function() {
 })
 
 // Go
-gulp.task('default', ['connect', 'compass', 'browserify', 'jade', 'images', 'watch'], function() {
+gulp.task('default', ['connect', 'compass', 'browserify', 'jade', <% if (angular) { 'jadeIndex', } %> 'images', 'watch'], function() {
   console.log('Starting up gulp!')
 })
