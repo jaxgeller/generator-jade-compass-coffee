@@ -22,23 +22,11 @@ var WebappGenerator = yeoman.generators.Base.extend({
 
     var prompts = [
       {
-        type: 'list',
-        name: 'typeOfPrj',
-        message: 'What kind of project would you like?',
-        choices: [
-          'static app (no server)',
-          'dynamic (adds express)'
-        ],
-        filter: function (val) { val = val.split(""); return val[0] }
-      },
-
-      {
         type: 'confirm',
         name: 'includeAngular',
         message: 'Include Angular?',
         default: false
       },
-
       {
         type: 'confirm',
         name: 'goTime',
@@ -48,8 +36,6 @@ var WebappGenerator = yeoman.generators.Base.extend({
     ];
 
     this.prompt(prompts, function (props) {
-      console.log(props);
-      this.prjType = props.typeOfPrj;
       this.angular = props.includeAngular;
       done();
     }.bind(this));

@@ -23,7 +23,7 @@ var p = {
   },
   jade: {
     src: 'jade/*.jade',
-    dest: 'build/'
+    dest: 'build/views/'
   }
 }
 
@@ -93,6 +93,6 @@ gulp.task('watch', function() {
 })
 
 // Go
-gulp.task('default', ['compass', 'browserify', 'jade', 'images', 'connect', 'watch'], function() {
+gulp.task('default', ['connect', 'compass', 'browserify', 'jade', 'images', 'watch'], function() {
   console.log('Starting up gulp!')
 })
