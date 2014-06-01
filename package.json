@@ -1,6 +1,6 @@
 {
   "name": "generator-jade-compass-coffee",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Yo generator made with jade, sass, gulp, susy, breakpoint, modular-scale, coffeescript and livereload.",
   "license": "MIT",
   "main": "app/index.js",
