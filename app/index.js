@@ -56,9 +56,6 @@ var WebappGenerator = yeoman.generators.Base.extend({
   },
 
   app: function () {
-    if (this.angular) {
-      this.copy('_bower.json', 'bower.json');
-    } 
     this.copy('_package.json', 'package.json');
     this.copy('_Gulpfile.js', "Gulpfile.js");
     this.directory('_public', 'public');
