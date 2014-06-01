@@ -5,7 +5,6 @@ var yeoman = require('yeoman-generator');
 var yosay = require('yosay');
 var chalk = require('chalk');
 
-
 var WebappGenerator = yeoman.generators.Base.extend({
   init: function () {
     this.pkg = require('../package.json');
@@ -21,12 +20,31 @@ var WebappGenerator = yeoman.generators.Base.extend({
     var done = this.async();
     this.log(yosay('Yo yo yo time to generate some apps!'));
 
-    var prompts = [{
-      type: 'confirm',
-      name: 'goTime',
-      message: 'Start Generator?',
-      default: true
-    }];
+    var prompts = [
+      {
+        type: 'list',
+        name: 'typeOfPrj',
+        message: 'What kind of project would you like?',
+        choices: [
+          'Static app (no server)',
+          'Dynamic (adds express)'
+        ]
+      },
+
+      {
+        type: 'confirm',
+        name: 'includeAngular',
+        message: 'Include Angular?',
+        default: false
+      },
+
+      {
+        type: 'confirm',
+        name: 'goTime',
+        message: 'Start Generator?',
+        default: true
+      }
+    ];
 
     this.prompt(prompts, function (props) {
       console.log(props);
