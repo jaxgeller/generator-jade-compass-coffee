@@ -66,7 +66,7 @@ gulp.task('browserify', function() {
       extensions: ['.coffee']
     }))
     .pipe(rename('main.js'))
-    .pipe(uglify())
+    <% if (!angular) {.pipe(uglify())} %>
     .pipe(gulp.dest(p.scripts.dest))
     .pipe(connect.reload())
 })
