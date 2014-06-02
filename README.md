@@ -23,7 +23,7 @@ $ gulp
 ### Directory structure
 ```
 build/
-  index.html
+  index.html ---- index.jade builds outside views for use with angular router. Otherwise all other .jade files build to views
   public/
     scripts/
       main.js
