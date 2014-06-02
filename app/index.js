@@ -43,7 +43,7 @@ var WebappGenerator = yeoman.generators.Base.extend({
 
   app: function () {
     this.copy('_package.json', 'package.json');
-    this.copy('_Gulpfile.js', "Gulpfile.js");
+    this.template('_Gulpfile.js', "Gulpfile.js");
     this.directory('_public', 'public');
     this.directory('_jade', 'jade');
     this.directory('_build', 'build');

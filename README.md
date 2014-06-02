@@ -1,21 +1,48 @@
-### Install
----
-`npm install generator-jade-compass-coffee -g`
----
+# Generator-jade-compass-coffee (angular)
 
-### Use 
-`yo jade-compass-coffee`
-Scaffolds out a directory with:
-+ Build -- Minified, browserified, and livereloaded code.
-+ Jade -- All of the src jade files, gets compiled to build.
-+ Public -- All of the source sass and coffeescript files, gets compiled to build.
+## Install
+```
+npm install generator-jade-compass-coffee -g
+```
 
+## Use
+```
+yo jade-compass-coffee
+$ gulp
+```
 
----
-
-### Comes with
-+ Coffeescript
+### Comes With
 + Jade
-+ Compass -- susy, breakpoint, modular-scale.
++ Compass -- susy, breakpoint, modular-scale
++ Coffeescript (angular)
 + Browserify
 + Livereload
++ angular optional (build with browserify and coffeescript)
++ Gulp for tasks
+
+### Directory structure
+```
+build/
+  index.html
+  public/
+    scripts/
+      main.js
+    style/
+      main.css
+  views/
+    partials.html...
+
+Gulpfile.js
+
+jade/
+  index.jade
+  partials.html...
+
+public/
+  sass/
+    main.scss
+    others.scss...
+  scripts/
+    app.coffee
+    others.coffee...
+```
