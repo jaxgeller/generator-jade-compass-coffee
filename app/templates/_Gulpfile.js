@@ -11,6 +11,7 @@ var compass = require('gulp-compass');
 var browserify = require('gulp-browserify');
 var jade = require('gulp-jade');
 var imagemin = require('gulp-imagemin');
+var annotate = require('gulp-ng-annotate')
 
 var p = {
   sass: {
@@ -23,13 +24,7 @@ var p = {
   },
   jade: {
     src: 'jade/*.jade',
-    dest: 'build/views/' 
-    <% if (angular) { %>
-    ,index: {
-        src: 'jade/index.jade',
-        dest: 'build/'
-        }
-    <% } %> 
+    dest: 'build/' 
   }
 }
 
@@ -66,8 +61,9 @@ gulp.task('browserify', function() {
       transform: ['coffeeify'],
       extensions: ['.coffee']
     }))
-    <% if (!angular) { %> .pipe(uglify()) <% } %>
+<% if (angular) { %> .pipe(annotate()) <%} %>
     .pipe(rename('main.js'))
+    .pipe(uglify())
     .pipe(gulp.dest(p.scripts.dest))
     .pipe(connect.reload())
 })
@@ -80,15 +76,6 @@ gulp.task('jade', function() {
     .pipe(gulp.dest(p.jade.dest))
     .pipe(connect.reload())
 })
-<% if (angular) { %>
-gulp.task('jadeIndex', function() {
-  gulp.src(p.jade.index.src)
-    .pipe(plumber())
-    .pipe(jade())
-    .pipe(gulp.dest(p.jade.index.dest))
-    .pipe(connect.reload())
-})
-<% } %>
 
 // Images
 gulp.task('images', function() {
@@ -102,12 +89,12 @@ gulp.task('images', function() {
 // Watch
 gulp.task('watch', function() {
   gulp.watch('public/sass/**/*.scss', ['compass']);
-  gulp.watch('public/scripts/**/*.coffee', ['browserify']);
   gulp.watch('jade/**/*.jade', ['jade']);
+  gulp.watch('public/scripts/**/*.coffee', ['browserify']);
   gulp.watch('public/images/**',['images']);
 })
 
 // Go
-gulp.task('default', ['connect', 'compass', 'browserify', 'jade', <% if (angular) { %> 'jadeIndex', <% } %> 'images', 'watch'], function() {
-  console.log('Starting up gulp!')
+gulp.task('default', ['connect','jade', 'compass', 'browserify', 'images', 'watch'], function() {
+  console.log('Starting gulp!')
 })

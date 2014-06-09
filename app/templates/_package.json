@@ -11,6 +11,7 @@
     "gulp-compass":"*",
     "gulp-browserify":"*",
     "gulp-jade":"*",
+    "gulp-ng-annotate":"*",
     "gulp-imagemin":"*",
     "gulp-connect":"*",
     "gulp-minify-css":"*",
