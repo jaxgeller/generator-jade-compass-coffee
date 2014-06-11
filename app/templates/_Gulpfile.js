@@ -44,6 +44,7 @@ gulp.task('compass', function() {
       css: 'build/public/style',
       sass: 'public/sass', 
       require: ['susy', 'breakpoint', 'modular-scale']
+      sourcemap: true
     }))
     .on('error', function(err) {
       console.log(err) // plumber was not very good with compass
