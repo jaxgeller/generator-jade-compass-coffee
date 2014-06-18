@@ -43,6 +43,7 @@ var WebappGenerator = yeoman.generators.Base.extend({
 
     this.prompt(prompts, function (props) {
       this.angular = props.includeAngular;
+      this.includeCoffee = props.includeCoffee;
       done();
     }.bind(this));
   },
