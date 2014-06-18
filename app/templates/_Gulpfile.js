@@ -20,7 +20,7 @@ var p = {
   },
   scripts: {
     coffee: 'public/scripts/main.coffee',
-    js: 'public/scripts/main.js'
+    js: 'public/scripts/main.js',
     dest: 'build/public/scripts/'
   },
   jade: {
@@ -44,7 +44,7 @@ gulp.task('compass', function() {
     .pipe(compass({
       css: 'build/public/style',
       sass: 'public/sass', 
-      require: ['susy', 'breakpoint', 'modular-scale']
+      require: ['susy', 'breakpoint', 'modular-scale'],
       sourcemap: true
     }))
     .on('error', function(err) {
