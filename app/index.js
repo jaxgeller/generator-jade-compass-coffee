@@ -23,6 +23,12 @@ var WebappGenerator = yeoman.generators.Base.extend({
     var prompts = [
       {
         type: 'confirm',
+        name: 'includeCoffeescript',
+        message: 'Include Coffescript?',
+        default: false
+      },
+      {
+        type: 'confirm',
         name: 'includeAngular',
         message: 'Include Angular?',
         default: false

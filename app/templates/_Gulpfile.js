@@ -19,7 +19,8 @@ var p = {
     dest:'build/public/style/'
   },
   scripts: {
-    src: 'public/scripts/main.coffee',
+    coffee: 'public/scripts/main.coffee',
+    js: 'public/scripts/main.js'
     dest: 'build/public/scripts/'
   },
   jade: {
@@ -56,13 +57,19 @@ gulp.task('compass', function() {
 
 // Coffee
 gulp.task('browserify', function() {
-  gulp.src(p.scripts.src, {read: false})
+  <% if (includeCoffee) { %>
+    gulp.src(p.scripts.src, {read: false})  
+  <% } %>
+  <% if (!includeCoffee) { %>
+    gulp.src(p.scripts.js, {read: false})  
+  <% } %>
     .pipe(plumber())
     .pipe(browserify({
+      <% if (includeCoffee) { %>
       transform: ['coffeeify'],
       extensions: ['.coffee']
+      <% } %>
     }))
-<% if (angular) { %> .pipe(annotate()) <%} %>
     .pipe(rename('main.js'))
     .pipe(uglify())
     .pipe(gulp.dest(p.scripts.dest))
@@ -91,7 +98,7 @@ gulp.task('images', function() {
 gulp.task('watch', function() {
   gulp.watch('public/sass/**/*.scss', ['compass']);
   gulp.watch('jade/**/*.jade', ['jade']);
-  gulp.watch('public/scripts/**/*.coffee', ['browserify']);
+  gulp.watch('public/scripts/**/*', ['browserify']);
   gulp.watch('public/images/**',['images']);
 })
 
