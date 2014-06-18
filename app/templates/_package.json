@@ -16,9 +16,9 @@
     "gulp-connect":"*",
     "gulp-minify-css":"*",
     "gulp-uglify":"*",
-    "browserify":"*",
+    "browserify":"*"
     <% if (includeCoffee) { %>
-    "coffeeify":"*"
+    ,"coffeeify":"*"
     <% } %>
   }
   <% if (angular) { %>
